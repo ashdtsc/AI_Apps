@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Parser - Upload & Extract</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 Resume Parser</h1>
+            <p>Upload your resume PDF to extract structured data</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="drop-zone" id="dropZone">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h2>Drag & Drop Your Resume</h2>
+                    <p>or</p>
+                    <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                        Browse Files
+                    </button>
+                    <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                </div>
+
+                <!-- Upload Status -->
+                <div id="uploadStatus" class="upload-status hidden">
+                    <p id="statusMessage"></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="results-header">
+                    <h2>📊 Extracted Data</h2>
+                    <button class="download-btn" onclick="downloadJSON()">
+                        ⬇️ Download JSON
+                    </button>
+                </div>
+
+                <!-- JSON Tree Viewer -->
+                <div class="json-tree-container">
+                    <div id="jsonTree" class="json-tree"></div>
+                </div>
+
+                <!-- Upload New Button -->
+                <button class="upload-again-btn" onclick="resetUpload()">
+                    ↻ Upload Another Resume
+                </button>
+            </section>
+        </main>
+
+        <footer>
+            <p>💡 Your data is processed and not stored on our servers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

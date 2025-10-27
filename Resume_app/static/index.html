@@ -3,65 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Parser - Upload & Extract</title>
+    <title>Resume-Job Fitment Analyzer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📄 Resume Parser</h1>
-            <p>Upload your resume PDF to extract structured data</p>
+            <h1>Resume-Job Fitment Analyzer</h1>
+            <p>Upload your resume and job description to analyze fitment score</p>
         </header>
 
         <main>
             <!-- Upload Section -->
             <section class="upload-section">
-                <div class="drop-zone" id="dropZone">
-                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                    <h2>Drag & Drop Your Resume</h2>
-                    <p>or</p>
-                    <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
-                        Browse Files
-                    </button>
-                    <input type="file" id="fileInput" accept=".pdf" style="display: none;">
-                </div>
+                <div class="upload-grid">
+                    <!-- Resume Upload -->
+                    <div class="upload-box">
+                        <h3>Resume</h3>
+                        <div class="drop-zone" id="resumeDropZone">
+                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <h4>Upload Resume</h4>
+                            <p>Drag & drop your resume PDF here</p>
+                            <p class="or-text">OR</p>
+                            <button class="browse-btn" onclick="document.getElementById('resumeFileInput').click()">Browse File</button>
+                            <input type="file" id="resumeFileInput" accept=".pdf" hidden>
+                            <div class="url-input-section">
+                                <p class="or-text">OR</p>
+                                <input type="url" id="resumeUrlInput" class="url-input" placeholder="Enter LinkedIn Profile URL">
+                            </div>
+                        </div>
+                        <div class="upload-status hidden" id="resumeStatus">
+                            <p id="resumeStatusMessage">📤 Ready to upload...</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="resumeProgressFill"></div>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Upload Status -->
-                <div id="uploadStatus" class="upload-status hidden">
-                    <p id="statusMessage"></p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
+                    <!-- Job Description Upload -->
+                    <div class="upload-box">
+                        <h3>Job Description</h3>
+                        <div class="drop-zone" id="jobDropZone">
+                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <h4>Upload Job Description</h4>
+                            <p>Drag & drop job description PDF here</p>
+                            <p class="or-text">OR</p>
+                            <button class="browse-btn" onclick="document.getElementById('jobFileInput').click()">Browse File</button>
+                            <input type="file" id="jobFileInput" accept=".pdf" hidden>
+                            <div class="url-input-section">
+                                <p class="or-text">OR</p>
+                                <input type="url" id="jobUrlInput" class="url-input" placeholder="Enter Job Posting URL">
+                            </div>
+                        </div>
+                        <div class="upload-status hidden" id="jobStatus">
+                            <p id="jobStatusMessage">📤 Ready to upload...</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="jobProgressFill"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Analyze Button -->
+                <button class="analyze-btn hidden" id="analyzeBtn" onclick="analyzeMatch()">
+                    <span>🔍 Analyze Fitment</span>
+                </button>
             </section>
 
             <!-- Results Section -->
             <section class="results-section hidden" id="resultsSection">
                 <div class="results-header">
-                    <h2>📊 Extracted Data</h2>
-                    <button class="download-btn" onclick="downloadJSON()">
-                        ⬇️ Download JSON
-                    </button>
+                    <h2>Fitment Analysis Results</h2>
+                    <button class="download-btn" onclick="downloadJSON()">📥 Download Results</button>
                 </div>
 
-                <!-- JSON Tree Viewer -->
-                <div class="json-tree-container">
-                    <div id="jsonTree" class="json-tree"></div>
+                <!-- Score Dashboard -->
+                <div class="score-dashboard">
+                    <div class="overall-score-card">
+                        <h3>Overall Fitment Score</h3>
+                        <div class="score-circle" id="overallScoreCircle">
+                            <span class="score-value" id="overallScoreValue">--</span>
+                            <span class="score-suffix">%</span>
+                        </div>
+                        <p class="score-label" id="overallScoreLabel">Calculating...</p>
+                    </div>
+
+                    <div class="parameter-scores">
+                        <div class="score-card">
+                            <h4>Skills Match</h4>
+                            <div class="score-bar-container">
+                                <div class="score-bar" id="skillsBar"></div>
+                            </div>
+                            <span class="score-percentage" id="skillsScore">--%</span>
+                        </div>
+                        <div class="score-card">
+                            <h4>Experience Match</h4>
+                            <div class="score-bar-container">
+                                <div class="score-bar" id="experienceBar"></div>
+                            </div>
+                            <span class="score-percentage" id="experienceScore">--%</span>
+                        </div>
+                        <div class="score-card">
+                            <h4>Education Match</h4>
+                            <div class="score-bar-container">
+                                <div class="score-bar" id="educationBar"></div>
+                            </div>
+                            <span class="score-percentage" id="educationScore">--%</span>
+                        </div>
+                        <div class="score-card">
+                            <h4>Keywords Match</h4>
+                            <div class="score-bar-container">
+                                <div class="score-bar" id="keywordsBar"></div>
+                            </div>
+                            <span class="score-percentage" id="keywordsScore">--%</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Upload New Button -->
-                <button class="upload-again-btn" onclick="resetUpload()">
-                    ↻ Upload Another Resume
-                </button>
+                <!-- Detailed Results -->
+                <div class="detailed-results">
+                    <h3>Detailed Analysis</h3>
+                    <div class="json-tree-container">
+                        <div class="json-tree" id="jsonTree"></div>
+                    </div>
+                </div>
+
+                <button class="upload-again-btn" onclick="resetUpload()">Upload Another Resume</button>
             </section>
         </main>
 
         <footer>
-            <p>💡 Your data is processed and not stored on our servers</p>
+            <p>Resume-Job Fitment Analyzer © 2025</p>
         </footer>
     </div>
 

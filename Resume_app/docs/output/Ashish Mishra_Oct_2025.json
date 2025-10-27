@@ -1,0 +1,67 @@
+```json
+{
+  "Name": "Ashish Mishra",
+  "Contact Information": {
+    "Phone": "8971029940",
+    "Email": "ashish_mishra47@hotmail.com",
+    "LinkedIn": "www.linkedin.com/in/ashish-mishra47"
+  },
+  "Summary": "AI Product Manager with 8+ years of building enterprise AI solutions across GenAI and ML. Delivered $5M+ business impact through 5 product launches in healthcare, telecom, and insurance. Expert at scaling AI adoption by balancing compliance, business value, and technical rigour for Fortune 100 clients.",
+  "Skills": [
+    "TensorFlow",
+    "Python",
+    "Power BI"
+  ],
+  "Experience": [
+    {
+      "title": "SENIOR AI PRODUCT MANAGER",
+      "company": "ACCENTURE",
+      "dates": "JAN 2024 – PRESENT",
+      "responsibilities": [
+        "AI Policy Codification: Designed and launched for Insurance and Telecom clients.",
+        "Reframed a client-specific insurance policy parsing ask into an industry-scale product vision by creating a Knowledge Brain — a semantic policy repository powered by vector embeddings and human-in-loop validation, positioning it as a reusable asset across multiple payers and providers.",
+        "Balanced regulatory, technical, and business trade-offs by designing an AI-augmented semantic search system compliant with California’s new AI healthcare laws; shifted from “AI decisioning” to “AI-augmented knowledge access,” enabling adoption while future-proofing against legal risks.",
+        "Delivered transformative business impact — reducing policy evaluation time by 60%, care delivery lead time by 40%, and eligibility errors by 80%, while unlocking a scalable multi-client platform opportunity in healthcare insurance operations.",
+        "AI Email & Document Analyser: Designed and launched enterprise-grade Doc intelligence solution",
+        "Reduced escalation handling time by 50% by using transformer-based classification + LLM extraction, with human-in-the-loop verification to ensure trust and compliance.",
+        "Improved SLA adherence from 70% → 95% for telecom service desk operations by creating a two-stage AI pipeline and a ‘rubber banded’ verification UI that accelerated human validation.",
+        "Delivered ~30% FTE savings across service desk operations by leading product discovery with ops leads, prioritising high-impact use cases, and scaling automation across multiple telecom processes.",
+        "Increased underwriter throughput and revenue potential by deploying an AI-assisted document triage system with modular classification and extraction, reducing manual sifting of customer documents.",
+        "Drove ~$3M annual savings for a top insurer by cutting document processing time in half and reducing dependency on manual teams through AI-driven automation with human verification for compliance."
+      ]
+    },
+    {
+      "title": "AI PRODUCT MANAGER",
+      "company": "ACCENTURE",
+      "dates": "APRIL 2022 – DEC 2023",
+      "responsibilities": [
+        "Work Force Manager: Designed and launched AI driven Work Force Management tool",
+        "Achieved forecasting accuracy > 85%, reducing forecast variance by 60% - cutting ~$1.2M annual overtime cost.",
+        "Optimised capacity planning by integrating SLA, AHT and skill data with ML forecast, reducing SLA breaches by 35% and boost operation efficiency of 4 client accounts.",
+        "Pioneered cross-skill recommendations and “what-if” simulations, enabling managers to dynamically reallocate talent and plan for volume spikes, laying the foundation for a scalable resource marketplace."
+      ]
+    },
+    {
+      "title": "ASSISTANT MANAGER – R&D",
+      "company": "BOSCH LTD",
+      "dates": "NOVEMBER 2012 – MARCH 2018",
+      "responsibilities": [
+        "Led design of India’s first low-cost LCV BSIV fuel injection pump for GCL; earned an early promotion.",
+        "Created ‘Torque Computation Module’ which became Bosch Standard Tool for New Developments."
+      ]
+    }
+  ],
+  "Education": [
+    {
+      "institution": "Indian Institute of Management (IIM), Calcutta",
+      "degree": "Economics and Marketing",
+      "dates": "Apr’ 2018 to Mar’ 2019"
+    },
+    {
+      "institution": "Uttar Pradesh Technical University",
+      "degree": "Mechanical Engineering",
+      "dates": "June 2008 to May 2012"
+    }
+  ]
+}
+```

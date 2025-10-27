@@ -1,0 +1,67 @@
+```json
+{
+  "Name": "Ashish Mishra",
+  "Contact Information": {
+    "Phone": "8971029940",
+    "Email": "ashish_mishra47@hotmail.com",
+    "LinkedIn": "www.linkedin.com/in/ashish-mishra47"
+  },
+  "Summary": "AI Product Manager with 8+ years of building enterprise AI solutions across GenAI and ML. Delivered $5M+ business impact through 5 product launches in healthcare, telecom, and insurance. Expert at scaling AI adoption by balancing compliance, business value, and technical rigor for Fortune 100 clients.",
+  "Skills": [
+    "TensorFlow",
+    "LangGraph",
+    "Python",
+    "RAG",
+    "AI Agents",
+    "OpenAI API",
+    "Transformer",
+    "GPT",
+    "GenAI",
+    "ML"
+  ],
+  "Experience": [
+    {
+      "Title": "SENIOR AI PRODUCT MANAGER",
+      "Company": "ACCENTURE",
+      "Dates": "JAN 2024 – PRESENT",
+      "Description": [
+        "AI Policy Codification: Designed and built “Knowledge Brain,” a semantic policy repository with vector embeddings and human-in-loop validation, which Delivered transformative business impact — reduced policy evaluation time by 60%, care delivery lead time by 40%, and eligibility errors by 80%.",
+        "Built a “human trust layer” that merged AI speed with expert validation, creating confidence among clinicians and regulators while ensuring system learning over time.",
+        "Elevated a narrow client ask into an industry-first semantic policy repository, establishing Accenture as a thought leader in AI-driven compliance tools.",
+        "AI Email & Document Analyzer: Deployed LLM-based triage & extraction system, that Improved SLA adherence 70% → 95%, saved 30% FTE, and drove $3M annual savings by halving document processing time.",
+        "Ensured trust, compliance, and scalability via a human-in-loop verification layer and modular AI pipeline, enabling enterprise-wide adoption across telecom & insurance."
+      ]
+    },
+    {
+      "Title": "AI PRODUCT MANAGER",
+      "Company": "ACCENTURE",
+      "Dates": "APRIL 2019 – DEC 2023",
+      "Description": [
+        "Work Force Manager: Designed and launched AI based forecasting and capacity planning tool.",
+        "Achieved 85%+ forecast accuracy, cut overtime costs by $1.2M, reduced SLA breaches by 35%, and enabled “what-if” simulations for dynamic staffing."
+      ]
+    },
+    {
+      "Title": "ASSISTANT MANAGER – R&D",
+      "Company": "BOSCH LTD",
+      "Dates": "NOVEMBER 2012 – MARCH 2018",
+      "Description": [
+        "Led design of India’s first low-cost LCV BSIV fuel injection pump for GCL; earned an early promotion.",
+        "Created ‘Torque Computation Module’ which became Bosch Standard Tool for New Developments."
+      ]
+    }
+  ],
+  "Education": [
+    {
+      "Institution": "Indian Institute of Management (IIM), Calcutta",
+      "Degree/Field": "Economics and Marketing",
+      "Dates": "Apr’ 2018 to Mar’ 2019"
+    },
+    {
+      "Institution": "Uttar Pradesh Technical University",
+      "Degree/Field": "Mechanical Engineering",
+      "Dates": "June 2008 to May 2012"
+    }
+  ]
+}
+```

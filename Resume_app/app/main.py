@@ -1,8 +1,9 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from app.llm import generate_from_doc
-import os, uuid
+import os, uuid, json
 
 app = FastAPI(title='Resume Parser API')
 
@@ -20,7 +21,7 @@ OUTPUT_DIR = 'docs/output/'
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-
+# Define API routes BEFORE mounting static files
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     filename = file.filename or f"uploaded_{uuid.uuid4()}.pdf"
@@ -41,6 +42,5 @@ async def upload_file(file: UploadFile = File(...)):
     
     return {'file_name': filename, 'llm_response': llm_response}
 
-# Serve static files
+# Mount static files LAST (this catches all remaining routes)
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
